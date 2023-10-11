@@ -10,10 +10,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       url: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       imageableType: {
-        type: Sequelize.ENUM
+        type: Sequelize.ENUM('UserProfile', 'BlogPost')
       },
       imageableId: {
         type: Sequelize.INTEGER

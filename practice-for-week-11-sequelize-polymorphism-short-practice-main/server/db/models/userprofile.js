@@ -4,14 +4,14 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class UserProfile extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // Step 2 - define polymorphic association
-      // Your code here
+      this.hasMany(models.image, {
+        foreignKey: 'imageableId',
+        constraints: false,
+        scope: {
+          imageableType: 'UserProfile'
+        }
+      })
     }
   };
   UserProfile.init({
